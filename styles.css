@@ -841,11 +841,11 @@ select {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("assets/design-reference-map.jpg");
+  background-image: url("assets/project-map.svg");
   background-repeat: no-repeat;
-  background-size: auto 700px;
-  background-position: calc(100% - 160px) center;
-  opacity: 0.72;
+  background-size: min(94%, 980px) auto;
+  background-position: center;
+  opacity: 1;
 }
 @media (max-width: 900px) {
   .reference-hero {
@@ -866,8 +866,8 @@ select {
     min-height: 390px;
   }
   .reference-map:before {
-    background-size: auto 600px;
-    background-position: calc(100% - 180px) center;
+    background-size: 108% auto;
+    background-position: center;
   }
 }
 .long-copy {
