@@ -1450,13 +1450,13 @@ a.project:focus-visible {
     padding: 10px 12px;
   }
   .hero {
-    min-height: 610px;
+    min-height: 550px;
     background-position: 82% center;
   }
   .hero-copy {
     width: auto;
     margin: 0;
-    padding: 72px 24px;
+    padding: 52px 24px;
   }
   .hero h1,
   .page-hero h1 {
