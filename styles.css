@@ -1454,7 +1454,8 @@ a.project:focus-visible {
   .hero {
     min-height: 550px;
     background-image: url("assets/hero-mobile-warm-v1.png");
-    background-position: center;
+    background-size: auto 125%;
+    background-position: center top;
   }
   .hero:before {
     background: linear-gradient(
