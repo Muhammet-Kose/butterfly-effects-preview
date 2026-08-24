@@ -9,7 +9,7 @@
       content="Butterfly Effects unterstützt Familien, Kinder und Gemeinschaften mit Wasser, Bildung, Beratung und nachhaltiger Hilfe."
     />
     <link rel="icon" href="assets/logo.png" />
-    <link rel="stylesheet" href="styles.css?v=project-map-reference-v4" />
+    <link rel="stylesheet" href="styles.css?v=project-map-layered-v5" />
   </head>
   <body>
     <div data-header></div>
@@ -177,7 +177,17 @@
           class="reference-map"
           role="img"
           aria-label="Weltkarte mit Projektorten"
-        ></div>
+        >
+          <div class="map-stage" aria-hidden="true">
+            <img src="assets/project-map-base.png" alt="" />
+            <span class="map-pin pin-hamburg"><i></i><b>Hamburg</b></span>
+            <span class="map-pin pin-srebrenica"><i></i><b>Srebrenica</b></span>
+            <span class="map-pin pin-gaziantep"><i></i><b>Gaziantep</b></span>
+            <span class="map-pin pin-niger"><i></i><b>Niger</b></span>
+            <span class="map-pin pin-bangladesch"><i></i><b>Bangladesch</b></span>
+            <span class="map-pin pin-tansania"><i></i><b>Tansania</b></span>
+          </div>
+        </div>
       </section>
       <section class="section sand">
         <div class="split">
@@ -204,6 +214,6 @@
       </section>
     </main>
     <div data-footer></div>
-    <script src="page-shell.js?v=project-map-reference-v4"></script>
+    <script src="page-shell.js?v=project-map-layered-v5"></script>
   </body>
 </html>
