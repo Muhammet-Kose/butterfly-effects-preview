@@ -1453,7 +1453,17 @@ a.project:focus-visible {
   }
   .hero {
     min-height: 550px;
-    background-position: 82% center;
+    background-image: url("assets/hero-mobile-warm-v1.png");
+    background-position: center;
+  }
+  .hero:before {
+    background: linear-gradient(
+      90deg,
+      rgba(8, 29, 45, 0.9) 0%,
+      rgba(8, 29, 45, 0.72) 42%,
+      rgba(8, 29, 45, 0.28) 68%,
+      rgba(8, 29, 45, 0.06) 100%
+    );
   }
   .hero-copy {
     width: auto;
