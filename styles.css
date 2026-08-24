@@ -263,28 +263,6 @@ select {
   line-height: 1.7;
   margin: 28px 0 24px;
 }
-.location-list {
-  list-style: none;
-  counter-reset: places;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 20px;
-  padding: 0;
-  margin: 0;
-  max-width: 300px;
-}
-.location-list li {
-  counter-increment: places;
-  border-top: 1px solid rgba(255, 255, 255, 0.13);
-  padding: 10px 0;
-  font-size: 0.7rem;
-}
-.location-list li:before {
-  content: "0" counter(places);
-  font-size: 0.55rem;
-  color: var(--accent);
-  margin-right: 12px;
-}
 .reference-map {
   height: 700px;
   min-width: 0;
@@ -895,23 +873,6 @@ select {
 .pin-niger { left: 50.3%; top: 42.5%; }
 .pin-bangladesch { left: 71.7%; top: 40.2%; }
 .pin-tansania { left: 58.3%; top: 46.9%; }
-.map-origin {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  margin: 22px 0 0;
-  color: #c6d1d9;
-  font-size: 0.66rem;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-}
-.map-origin i {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #f2e3c3;
-  box-shadow: 0 0 0 4px rgba(242, 227, 195, 0.12);
-}
 @media (max-width: 900px) {
   .reference-hero {
     height: auto;
@@ -954,9 +915,6 @@ select {
   .pin-niger b { left: auto; right: 20px; top: 30px; }
   .pin-bangladesch b { left: 20px; top: -26px; }
   .pin-tansania b { left: 20px; top: 30px; }
-  .map-origin {
-    font-size: 0.62rem;
-  }
 }
 .long-copy {
   display: grid;
