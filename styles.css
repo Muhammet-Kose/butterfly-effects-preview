@@ -859,6 +859,7 @@ a.project:focus-visible {
   object-fit: contain;
   filter: grayscale(1) brightness(1.9) contrast(0.88);
   opacity: 0.52;
+  clip-path: circle(40.5% at 50% 45.5%);
 }
 .map-pin {
   position: absolute;
@@ -980,7 +981,8 @@ a.project:focus-visible {
     top: 30px;
   }
   .pin-bangladesch b {
-    left: 20px;
+    left: auto;
+    right: 14px;
     top: -26px;
   }
   .pin-tansania b {
@@ -1570,7 +1572,7 @@ a.project:focus-visible {
     line-height: 1.65;
   }
   .map-stage {
-    width: min(108%, 420px);
+    width: min(96%, 420px);
   }
   .split-image {
     height: 390px;
