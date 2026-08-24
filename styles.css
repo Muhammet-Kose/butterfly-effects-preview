@@ -809,15 +809,15 @@ select {
   }
 }
 .reference-hero {
-  height: 700px;
-  min-height: 700px;
-  max-height: 700px;
+  height: 780px;
+  min-height: 780px;
+  max-height: 780px;
   grid-template-columns: 40% 60%;
   background: var(--navy);
 }
 .reference-copy {
-  height: 700px;
-  padding: 65px 5vw 65px max(8.5vw, calc((100vw - 1300px) / 2));
+  height: 780px;
+  padding: 76px 5vw 76px max(8.5vw, calc((100vw - 1300px) / 2));
   border-right: 0;
   background: var(--navy);
 }
@@ -832,7 +832,7 @@ select {
   font-weight: 430;
 }
 .reference-map {
-  height: 700px;
+  height: 780px;
   position: relative;
   overflow: hidden;
   background: var(--navy);
@@ -841,11 +841,12 @@ select {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("assets/project-map.svg");
+  background-image: url("assets/project-map-reference.png");
   background-repeat: no-repeat;
-  background-size: min(94%, 980px) auto;
+  background-size: min(98%, 1080px) auto;
   background-position: center;
   opacity: 1;
+  filter: brightness(1.75) saturate(0.72);
 }
 @media (max-width: 900px) {
   .reference-hero {
@@ -862,11 +863,11 @@ select {
     font-size: clamp(2.75rem, 9vw, 4rem);
   }
   .reference-map {
-    height: 58vw;
-    min-height: 390px;
+    height: 72vw;
+    min-height: 420px;
   }
   .reference-map:before {
-    background-size: 108% auto;
+    background-size: 112% auto;
     background-position: center;
   }
 }
