@@ -44,3 +44,34 @@ document.querySelector(".menu-toggle")?.addEventListener("click", (e) => {
     ? "Menü schließen"
     : "Menü öffnen";
 });
+
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (!reduceMotion && "IntersectionObserver" in window) {
+  const revealGroups = [
+    "main > section:not(.hero):not(.page-hero)",
+    ".project",
+    ".action-row",
+    ".card",
+    ".step",
+    ".donation-item",
+    ".team-card",
+    ".offerings details"
+  ];
+  const revealItems = [...document.querySelectorAll(revealGroups.join(","))];
+  revealItems.forEach((item, index) => {
+    item.classList.add("reveal-item");
+    item.style.setProperty("--reveal-delay", `${(index % 4) * 55}ms`);
+  });
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -5%" }
+  );
+  revealItems.forEach((item) => revealObserver.observe(item));
+  requestAnimationFrame(() => document.body.classList.add("reveal-ready"));
+}
