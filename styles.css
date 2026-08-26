@@ -2093,3 +2093,22 @@ main > section:nth-of-type(4n)::after {
     animation: none;
   }
 }
+
+.project-carousel-head { display:flex; align-items:center; justify-content:space-between; gap:24px; margin:-22px 0 18px; }
+.project-carousel-head p { margin:0; color:var(--muted); font-size:.78rem; font-weight:750; }
+.project-carousel-head p span { margin-right:7px; color:#7152b8; font-size:1.1rem; }
+.project-carousel-controls { display:flex; gap:10px; }
+.project-carousel-controls button { width:50px; height:50px; padding:0; border:1px solid var(--navy); border-radius:50%; color:#fff; background:var(--navy); cursor:pointer; font-size:1.25rem; transition:transform 150ms ease-out,background 150ms ease-out; }
+.project-carousel-controls button:hover { background:#7152b8; transform:translateY(-2px); }
+.project-carousel-controls button:focus-visible,
+.project-carousel .project-grid:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.project-carousel { margin-inline:calc(-1 * max(5vw, calc((100vw - var(--max)) / 2))); padding-inline:max(5vw, calc((100vw - var(--max)) / 2)); overflow:hidden; }
+.project-carousel .project-grid { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:clamp(280px,27vw,350px); gap:16px; border:0; background:transparent; overflow-x:auto; overscroll-behavior-inline:contain; scroll-snap-type:inline mandatory; scroll-behavior:smooth; scrollbar-width:none; padding:4px 4px 22px; }
+.project-carousel .project-grid::-webkit-scrollbar { display:none; }
+.project-carousel .project { scroll-snap-align:start; border:1px solid var(--line); border-radius:20px; overflow:hidden; }
+@media (max-width:600px) {
+  .project-carousel-head { margin-top:-28px; }
+  .project-carousel-controls button { width:46px; height:46px; }
+  .project-carousel { margin-inline:-6vw; padding-inline:6vw; }
+  .project-carousel .project-grid { grid-auto-columns:84vw; }
+}

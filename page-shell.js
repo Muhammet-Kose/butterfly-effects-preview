@@ -75,3 +75,15 @@ if (!reduceMotion && "IntersectionObserver" in window) {
   revealItems.forEach((item) => revealObserver.observe(item));
   requestAnimationFrame(() => document.body.classList.add("reveal-ready"));
 }
+
+const projectTrack = document.querySelector(".project-carousel .project-grid");
+document.querySelectorAll("[data-project-scroll]").forEach((control) => {
+  control.addEventListener("click", () => {
+    if (!projectTrack) return;
+    const direction = control.dataset.projectScroll === "next" ? 1 : -1;
+    projectTrack.scrollBy({
+      left: direction * projectTrack.clientWidth * 0.82,
+      behavior: "smooth"
+    });
+  });
+});

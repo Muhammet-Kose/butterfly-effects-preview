@@ -9,7 +9,7 @@
       content="Butterfly Effects unterstützt Familien, Kinder und Gemeinschaften mit Wasser, Bildung, Beratung und nachhaltiger Hilfe."
     />
     <link rel="icon" href="assets/logo.png" />
-    <link rel="stylesheet" href="styles.css?v=butterfly-motif-v1" />
+    <link rel="stylesheet" href="styles.css?v=project-carousel-v1" />
   </head>
   <body>
     <div data-header></div>
@@ -83,7 +83,15 @@
             Echte Begegnungen. Konkrete Hilfe. Neue Perspektiven.
           </p>
         </div>
-        <div class="project-grid">
+        <div class="project-carousel-head">
+          <p><span aria-hidden="true">↔</span> Wischen oder Pfeile nutzen</p>
+          <div class="project-carousel-controls" aria-label="Projektkarten steuern">
+            <button type="button" data-project-scroll="prev" aria-label="Vorherige Projekte">←</button>
+            <button type="button" data-project-scroll="next" aria-label="Weitere Projekte">→</button>
+          </div>
+        </div>
+        <div class="project-carousel">
+        <div class="project-grid" tabindex="0" aria-label="Unsere Projekte, horizontal scrollbar">
           <a class="project" href="wasser.html"
             ><div class="project-media">
               <img
@@ -132,7 +140,23 @@
               <h3>Lernen öffnet neue Wege</h3>
               <span class="arrow">Projekt ansehen →</span>
             </div></a
+          ><a class="project" href="ernaehrung.html"
+            ><div class="project-media"><img src="assets/project-family-warm-v3.png" alt="Eine unterstützte Familie" /></div>
+            <div class="project-body"><small>Ernährung</small><h3>Versorgung gibt neue Kraft</h3><span class="arrow">Projekt ansehen →</span></div></a
+          ><a class="project" href="ramadan-kurban.html"
+            ><div class="project-media"><img src="assets/kurban-project-original.jpg" alt="Helferin bei einem Kurban-Projekt" /></div>
+            <div class="project-body"><small>Kurban &amp; Ramadan</small><h3>Teilen, was Menschen verbindet</h3><span class="arrow">Projekt ansehen →</span></div></a
+          ><a class="project" href="beratung.html"
+            ><div class="project-media"><img src="assets/project-family-warm-v3.png" alt="Mutter und Tochter im Gespräch mit einer Helferin" /></div>
+            <div class="project-body"><small>Beratung</small><h3>Neue Kraft im Gespräch finden</h3><span class="arrow">Angebot ansehen →</span></div></a
+          ><a class="project" href="ehrenamt.html"
+            ><div class="project-media"><img src="assets/project-water-warm-v3.png" alt="Lachende Helfer bei einem Wasserprojekt" /></div>
+            <div class="project-body"><small>Ehrenamt</small><h3>Gemeinsam etwas bewegen</h3><span class="arrow">Mitmachen →</span></div></a
+          ><a class="project" href="foerdermitgliedschaft.html"
+            ><div class="project-media"><img src="assets/hero-warm-v3.png" alt="Lächelndes Kind als Symbol für langfristige Hilfe" /></div>
+            <div class="project-body"><small>Förderung</small><h3>Langfristig Zukunft sichern</h3><span class="arrow">Mehr erfahren →</span></div></a
           >
+        </div>
         </div>
       </section>
       <section class="reference-hero">
@@ -184,6 +208,6 @@
       </section>
     </main>
     <div data-footer></div>
-    <script src="page-shell.js?v=scroll-reveal-v2"></script>
+    <script src="page-shell.js?v=project-carousel-v1"></script>
   </body>
 </html>
