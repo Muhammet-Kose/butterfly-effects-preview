@@ -478,14 +478,15 @@ main .button:active {
 .split-image {
   height: 600px;
   overflow: hidden;
-  border-radius: 28px;
+  border-radius: 56px;
+  clip-path: inset(0 round 56px);
 }
 .split-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: none;
-  border-radius: inherit;
+  border-radius: 56px;
 }
 .checklist {
   list-style: none;
@@ -1871,6 +1872,11 @@ main .button:active {
   }
   .split-image {
     height: 390px;
+    border-radius: 32px;
+    clip-path: inset(0 round 32px);
+  }
+  .split-image img {
+    border-radius: 32px;
   }
   .cta {
     padding: 52px 24px;
