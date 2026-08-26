@@ -445,8 +445,7 @@ a.project:focus-visible {
   font-weight: 800;
 }
 .project p {
-  color: var(--muted);
-  font-size: 0.9rem;
+  display: none;
 }
 .arrow {
   font-weight: 800;
@@ -570,6 +569,32 @@ a.project:focus-visible {
   display: flex;
   align-items: end;
 }
+.visual-page .page-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: min(680px, calc(100vh - 82px));
+  overflow: hidden;
+  background-image: linear-gradient(
+      90deg,
+      rgba(8, 29, 45, 0.94) 0%,
+      rgba(8, 29, 45, 0.78) 36%,
+      rgba(8, 29, 45, 0.2) 72%,
+      rgba(8, 29, 45, 0.04) 100%
+    ),
+    var(--page-visual);
+  background-position: center, var(--page-focus, center);
+  background-size: cover;
+}
+.visual-page .page-hero > div {
+  max-width: 720px;
+}
+.visual-page .page-hero h1 {
+  text-wrap: balance;
+}
+.visual-page .page-hero p:last-child {
+  max-width: 570px;
+  line-height: 1.6;
+}
 .page-hero > div {
   max-width: 950px;
   min-width: 0;
@@ -596,14 +621,16 @@ a.project:focus-visible {
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  gap: 16px;
+  background: transparent;
+  border: 0;
   margin-top: 40px;
 }
 .card {
   background: #fff;
   padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
 }
 .card h3 {
   margin: 10px 0;
@@ -616,14 +643,16 @@ a.project:focus-visible {
   counter-reset: s;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  gap: 16px;
+  background: transparent;
+  border: 0;
   margin-top: 45px;
 }
 .step {
   background: var(--white);
   padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
 }
 .step:before {
   counter-increment: s;
@@ -638,13 +667,15 @@ a.project:focus-visible {
 .donation-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  gap: 16px;
+  background: transparent;
+  border: 0;
 }
 .donation-item {
   background: #fff;
   padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
 }
 .donation-item span {
   font-size: 0.72rem;
@@ -743,6 +774,16 @@ a.project:focus-visible {
   .site-header {
     height: 70px;
   }
+  .visual-page .page-hero {
+    min-height: 610px;
+    background-image: linear-gradient(
+        90deg,
+        rgba(8, 29, 45, 0.9) 0%,
+        rgba(8, 29, 45, 0.68) 46%,
+        rgba(8, 29, 45, 0.12) 82%
+      ),
+      var(--page-visual);
+  }
   .brand {
     width: 165px;
   }
@@ -832,7 +873,7 @@ a.project:focus-visible {
   .section {
     padding: 80px 6vw;
   }
-  .split-image {
+.split-image {
     height: 480px;
   }
   .footer-grid {
@@ -882,6 +923,18 @@ a.project:focus-visible {
     min-height: 390px;
     padding: 80px 6vw;
   }
+  .visual-page .page-hero {
+    min-height: 540px;
+    padding: 64px 24px;
+    background-position: center, var(--page-focus, center);
+  }
+  .visual-page .page-hero h1 {
+    font-size: clamp(2.55rem, 12vw, 3.2rem);
+  }
+  .visual-page .page-hero p:last-child {
+    max-width: 92%;
+    font-size: 1rem;
+  }
   .cta {
     align-items: flex-start;
     flex-direction: column;
@@ -927,6 +980,7 @@ a.project:focus-visible {
   height: 780px;
   position: relative;
   overflow: hidden;
+  border-radius: 24px;
   background: var(--navy);
   display: grid;
   place-items: center;
@@ -1113,15 +1167,17 @@ a.project:focus-visible {
 .purpose-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  gap: 16px;
+  background: transparent;
+  border: 0;
   margin-top: 45px;
 }
 .purpose-grid article {
   background: #fff;
   padding: 30px;
   min-height: 210px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
 }
 .purpose-grid strong {
   display: block;
@@ -1424,15 +1480,18 @@ a.project:focus-visible {
 }
 .action-list {
   display: grid;
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  gap: 22px;
+  background: transparent;
+  border: 0;
 }
 .action-row {
   background: #fff;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   min-height: 390px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
 }
 .action-row:nth-child(even) .action-visual {
   order: -1;
@@ -1477,6 +1536,8 @@ a.project:focus-visible {
 .team-card {
   background: #fff;
   border: 1px solid var(--line);
+  overflow: hidden;
+  border-radius: 18px;
 }
 .team-card img {
   width: 100%;

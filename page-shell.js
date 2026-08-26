@@ -1,4 +1,30 @@
 const path = location.pathname.split("/").pop() || "index.html";
+const pageVisuals = {
+  "projekte.html": ["project-education-warm-v3.png", "50% 42%"],
+  "wasser.html": ["project-water-warm-v3.png", "50% 44%"],
+  "waisen.html": ["project-orphans-warm-v3.png", "50% 38%"],
+  "familien.html": ["project-family-warm-v3.png", "56% 42%"],
+  "bildung.html": ["project-education-warm-v3.png", "50% 42%"],
+  "ernaehrung.html": ["project-family-warm-v3.png", "58% 42%"],
+  "ramadan-kurban.html": ["kurban-project-original.jpg", "50% 42%"],
+  "spenden.html": ["hero-warm-v3.png", "66% 45%"],
+  "mitmachen.html": ["project-education-warm-v3.png", "48% 42%"],
+  "ehrenamt.html": ["project-water-warm-v3.png", "52% 40%"],
+  "foerdermitgliedschaft.html": ["hero-warm-v3.png", "66% 45%"],
+  "unternehmen.html": ["project-water-warm-v3.png", "52% 40%"],
+  "aktion.html": ["project-family-warm-v3.png", "56% 42%"],
+  "fachwissen.html": ["project-education-warm-v3.png", "48% 42%"],
+  "projekt-teilen.html": ["project-education-warm-v3.png", "48% 42%"],
+  "beratung.html": ["project-family-warm-v3.png", "58% 40%"],
+  "ueber-uns.html": ["project-education-warm-v3.png", "48% 42%"],
+  "kontakt.html": ["project-water-warm-v3.png", "52% 40%"]
+};
+const pageVisual = pageVisuals[path];
+if (pageVisual) {
+  document.body.classList.add("visual-page");
+  document.body.style.setProperty("--page-visual", `url("assets/${pageVisual[0]}")`);
+  document.body.style.setProperty("--page-focus", pageVisual[1]);
+}
 const nav = [
   ["projekte.html", "Projekte"],
   ["ramadan-kurban.html", "Kurban"],
