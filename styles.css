@@ -489,6 +489,9 @@ main .button:active {
   filter: none;
   border-radius: 56px;
 }
+.support-feature .split-image img {
+  object-position: center 42%;
+}
 .checklist {
   list-style: none;
   padding: 0;
