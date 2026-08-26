@@ -124,6 +124,7 @@ select {
   font-weight: 800;
   font-size: 0.82rem;
   letter-spacing: 0.01em;
+  border-radius: 999px;
   transition: 0.2s;
 }
 .button:hover {
@@ -370,6 +371,8 @@ a.project:focus-visible {
   height: 275px;
   overflow: hidden;
   background: #ddd;
+  margin: 12px 12px 0;
+  border-radius: 18px;
 }
 .project-media img {
   width: 100%;
@@ -980,7 +983,7 @@ a.project:focus-visible {
   height: 780px;
   position: relative;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 26px;
   background: var(--navy);
   display: grid;
   place-items: center;
@@ -1615,6 +1618,8 @@ a.project:focus-visible {
 }
 .action-visual {
   overflow: hidden;
+  margin: 14px;
+  border-radius: 20px;
 }
 .action-visual img {
   width: 100%;
@@ -1635,9 +1640,11 @@ a.project:focus-visible {
   border-radius: 18px;
 }
 .team-card img {
-  width: 100%;
+  width: calc(100% - 24px);
   aspect-ratio: 1;
   object-fit: cover;
+  margin: 12px 12px 0;
+  border-radius: 14px;
 }
 .team-card div {
   padding: 16px;
@@ -1870,6 +1877,7 @@ a.project:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 20px;
   object-position: center top;
 }
 .person-profile div {
@@ -1904,6 +1912,7 @@ a.project:focus-visible {
   height: 100%;
   min-height: 560px;
   object-fit: cover;
+  border-radius: 24px;
 }
 .kurban-feature-copy {
   padding: 80px max(6vw, 70px);
