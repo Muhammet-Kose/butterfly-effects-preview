@@ -6,7 +6,7 @@ const pageVisuals = {
   "familien.html": ["project-family-warm-v3.png", "56% 42%"],
   "bildung.html": ["project-education-warm-v3.png", "50% 42%"],
   "ernaehrung.html": ["project-family-warm-v3.png", "58% 42%"],
-  "ramadan-kurban.html": ["kurban-project-original.jpg", "50% 42%"],
+  "ramadan-kurban.html": ["project-education-warm-v3.png", "48% 42%"],
   "spenden.html": ["hero-warm-v3.png", "66% 45%"],
   "mitmachen.html": ["project-education-warm-v3.png", "48% 42%"],
   "ehrenamt.html": ["project-water-warm-v3.png", "52% 40%"],
