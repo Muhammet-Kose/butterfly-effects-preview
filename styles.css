@@ -90,6 +90,28 @@ select {
 .nav a[aria-current="page"] {
   border-color: var(--navy);
 }
+.nav .nav-cta {
+  min-height: 46px;
+  padding: 11px 20px;
+  border: 1px solid var(--navy);
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(13, 41, 64, 0.16);
+}
+.nav .nav-cta:hover,
+.nav .nav-cta[aria-current="page"] {
+  color: var(--navy);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.nav-cta svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
 .button {
   display: inline-flex;
   align-items: center;
@@ -697,6 +719,12 @@ a.project:focus-visible {
   }
   .nav a {
     padding: 8px;
+  }
+  .nav .nav-cta {
+    margin-top: 10px;
+    min-height: 48px;
+    padding: 11px 18px;
+    align-self: flex-start;
   }
   .hero {
     min-height: 650px;
