@@ -479,7 +479,8 @@ main .button:active {
   height: 600px;
   overflow: hidden;
   border-radius: 56px;
-  clip-path: inset(0 round 56px);
+  box-shadow: 0 24px 54px rgba(13, 41, 64, 0.18);
+  transform: translateY(-6px);
 }
 .split-image img {
   width: 100%;
@@ -1873,7 +1874,8 @@ main .button:active {
   .split-image {
     height: 390px;
     border-radius: 32px;
-    clip-path: inset(0 round 32px);
+    box-shadow: 0 16px 34px rgba(13, 41, 64, 0.16);
+    transform: translateY(-3px);
   }
   .split-image img {
     border-radius: 32px;
