@@ -6,9 +6,9 @@ const pageVisuals = {
   "familien.html": ["project-family-warm-v3.png", "56% 42%"],
   "bildung.html": ["project-education-warm-v3.png", "50% 42%"],
   "ernaehrung.html": ["project-family-warm-v3.png", "58% 42%"],
-  "ramadan-kurban.html": ["project-education-warm-v3.png", "48% 42%"],
+  "ramadan-kurban.html": ["kurban-project-original.jpg", "55% 46%"],
   "spenden.html": ["hero-warm-v3.png", "66% 45%"],
-  "mitmachen.html": ["project-education-warm-v3.png", "48% 42%"],
+  "mitmachen.html": ["volunteer.jpg", "58% 50%"],
   "ehrenamt.html": ["project-water-warm-v3.png", "52% 40%"],
   "foerdermitgliedschaft.html": ["hero-warm-v3.png", "66% 45%"],
   "unternehmen.html": ["project-water-warm-v3.png", "52% 40%"],
@@ -16,7 +16,7 @@ const pageVisuals = {
   "fachwissen.html": ["project-education-warm-v3.png", "48% 42%"],
   "projekt-teilen.html": ["project-education-warm-v3.png", "48% 42%"],
   "beratung.html": ["project-family-warm-v3.png", "58% 40%"],
-  "ueber-uns.html": ["project-education-warm-v3.png", "48% 42%"],
+  "ueber-uns.html": ["project-water-warm-v3.png", "48% 42%"],
   "kontakt.html": ["project-water-warm-v3.png", "52% 40%"]
 };
 const pageVisual = pageVisuals[path];
