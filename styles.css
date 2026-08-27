@@ -315,7 +315,8 @@ main .button:active {
   clip: rect(0, 0, 0, 0);
 }
 .hero {
-  min-height: 720px;
+  min-height: calc(100vh - 82px);
+  min-height: calc(100svh - 82px);
   position: relative;
   display: flex;
   align-items: center;
