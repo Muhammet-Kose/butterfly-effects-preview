@@ -2485,3 +2485,121 @@ main > section:nth-of-type(4n)::after {
     height: 285px;
   }
 }
+
+/* Open hero text layout: restore the presentation used before card containers. */
+.hero::before {
+  background: linear-gradient(
+    90deg,
+    rgba(24, 18, 12, 0.82) 0%,
+    rgba(24, 18, 12, 0.66) 32%,
+    rgba(24, 18, 12, 0.18) 57%,
+    rgba(24, 18, 12, 0) 76%
+  );
+}
+.hero-copy {
+  width: min(650px, 52vw);
+  padding: 105px 0;
+  color: #fff;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.hero-copy .kicker,
+.visual-page .page-hero .kicker {
+  color: var(--accent);
+}
+.hero p {
+  color: #fff;
+}
+.visual-page .page-hero {
+  background-image: linear-gradient(
+      90deg,
+      rgba(24, 18, 12, 0.82) 0%,
+      rgba(24, 18, 12, 0.6) 36%,
+      rgba(24, 18, 12, 0.14) 72%,
+      rgba(24, 18, 12, 0.02) 100%
+    ),
+    var(--page-visual);
+  background-position: center, var(--page-focus, center);
+}
+.visual-page .page-hero > div {
+  padding: 0;
+  color: #fff;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.visual-page .page-hero p:last-child {
+  color: #fff;
+}
+.kurban-page.visual-page .page-hero {
+  background-image: linear-gradient(
+      90deg,
+      rgba(18, 16, 13, 0.82) 0%,
+      rgba(18, 16, 13, 0.6) 38%,
+      rgba(18, 16, 13, 0.14) 72%,
+      rgba(18, 16, 13, 0.02) 100%
+    ),
+    var(--page-visual);
+}
+
+@media (max-width: 900px) {
+  .hero::before {
+    background: linear-gradient(
+      90deg,
+      rgba(24, 18, 12, 0.86),
+      rgba(24, 18, 12, 0.5) 65%,
+      rgba(24, 18, 12, 0.14)
+    );
+  }
+  .hero-copy {
+    width: min(620px, 88vw);
+    margin-left: 6vw;
+    padding: 85px 0;
+  }
+  .visual-page .page-hero {
+    background-image: linear-gradient(
+        90deg,
+        rgba(24, 18, 12, 0.82) 0%,
+        rgba(24, 18, 12, 0.56) 46%,
+        rgba(24, 18, 12, 0.1) 82%
+      ),
+      var(--page-visual);
+  }
+  .kurban-page.visual-page .page-hero {
+    background-image: linear-gradient(
+        90deg,
+        rgba(18, 16, 13, 0.82) 0%,
+        rgba(18, 16, 13, 0.56) 48%,
+        rgba(18, 16, 13, 0.1) 84%
+      ),
+      var(--page-visual);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: calc(100vh - 70px);
+    min-height: calc(100svh - 70px);
+  }
+  .hero::before {
+    background: linear-gradient(
+      90deg,
+      rgba(24, 18, 12, 0.78) 0%,
+      rgba(24, 18, 12, 0.52) 42%,
+      rgba(24, 18, 12, 0.14) 68%,
+      rgba(24, 18, 12, 0.01) 100%
+    );
+  }
+  .hero-copy {
+    width: auto;
+    margin: 0;
+    padding: 52px 24px;
+  }
+  .visual-page .page-hero,
+  .kurban-page.visual-page .page-hero {
+    background-position: center, var(--page-focus, center);
+  }
+}
