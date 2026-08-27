@@ -69,7 +69,7 @@ select {
   z-index: 40;
 }
 .brand {
-  width: 190px;
+  width: 176px;
   margin-right: auto;
 }
 .brand img {
@@ -78,7 +78,7 @@ select {
 .nav {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
   font-size: 0.82rem;
   font-weight: 700;
 }

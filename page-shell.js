@@ -26,6 +26,7 @@ if (pageVisual) {
   document.body.style.setProperty("--page-focus", pageVisual[1]);
 }
 const nav = [
+  { url: "index.html", label: "Startseite" },
   { url: "projekte.html", label: "Projekte", children: [["wasser.html", "Wasserprojekte"], ["waisen.html", "Waisenkinder"], ["familien.html", "Familienhilfe"], ["bildung.html", "Bildung"], ["ernaehrung.html", "Ernährung"]] },
   { url: "ramadan-kurban.html", label: "Kurban", children: [["spenden.html#kurban-spenden", "Kurban-Spende", "heading"], ["https://butterfly-effects.org/online-spende/", "Kurban · Opfergabe", "nested"], ["https://butterfly-effects.org/online-spende/", "Adak-Opfergabe", "nested"], ["https://butterfly-effects.org/online-spende/", "Akika-Opfergabe", "nested"], ["https://butterfly-effects.org/online-spende/", "Gemeinschaftlicher Anteil", "nested"]] },
   { url: "mitmachen.html", label: "Mitmachen", children: [["ehrenamt.html", "Ehrenamtlich helfen"], ["foerdermitgliedschaft.html", "Fördermitglied werden"], ["unternehmen.html", "Als Unternehmen helfen"], ["aktion.html", "Eigene Aktion starten"], ["fachwissen.html", "Fachwissen einbringen"], ["projekt-teilen.html", "Projekt teilen"]] },
