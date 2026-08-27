@@ -159,6 +159,29 @@ select {
   background: var(--sand);
   border: 0;
 }
+.submenu .submenu-heading {
+  margin-bottom: 4px;
+  color: var(--navy);
+  font-weight: 800;
+  background: var(--sand);
+}
+.submenu .submenu-nested {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  margin-left: 12px;
+  padding-block: 8px;
+  padding-left: 16px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  border-left: 1px solid #d4cdc0;
+  border-radius: 0 8px 8px 0;
+}
+.submenu .submenu-nested span {
+  margin-left: auto;
+  padding-left: 18px;
+  font-size: 0.7rem;
+}
 .nav-group:hover .submenu,
 .nav-group:focus-within .submenu,
 .nav-group.submenu-open .submenu {
