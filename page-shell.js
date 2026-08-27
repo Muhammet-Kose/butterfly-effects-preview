@@ -22,6 +22,7 @@ const pageVisuals = {
 const pageVisual = pageVisuals[path];
 if (pageVisual) {
   document.body.classList.add("visual-page");
+  if (path === "ramadan-kurban.html") document.body.classList.add("kurban-page");
   document.body.style.setProperty("--page-visual", `url("assets/${pageVisual[0]}")`);
   document.body.style.setProperty("--page-focus", pageVisual[1]);
 }

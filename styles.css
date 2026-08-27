@@ -741,6 +741,16 @@ main .button:active {
   background-position: center, var(--page-focus, center);
   background-size: cover;
 }
+.kurban-page.visual-page .page-hero {
+  background-image: linear-gradient(
+      90deg,
+      rgba(18, 16, 13, 0.82) 0%,
+      rgba(18, 16, 13, 0.6) 38%,
+      rgba(18, 16, 13, 0.14) 72%,
+      rgba(18, 16, 13, 0.02) 100%
+    ),
+    var(--page-visual);
+}
 .visual-page .page-hero > div {
   max-width: 720px;
 }
@@ -937,6 +947,15 @@ main .button:active {
         rgba(8, 29, 45, 0.9) 0%,
         rgba(8, 29, 45, 0.68) 46%,
         rgba(8, 29, 45, 0.12) 82%
+      ),
+      var(--page-visual);
+  }
+  .kurban-page.visual-page .page-hero {
+    background-image: linear-gradient(
+        90deg,
+        rgba(18, 16, 13, 0.82) 0%,
+        rgba(18, 16, 13, 0.56) 48%,
+        rgba(18, 16, 13, 0.1) 84%
       ),
       var(--page-visual);
   }
