@@ -30,7 +30,8 @@ const nav = [
   { url: "ramadan-kurban.html", label: "Kurban", children: [["spenden.html", "Kurban-Spende"]] },
   { url: "mitmachen.html", label: "Mitmachen", children: [["ehrenamt.html", "Ehrenamtlich helfen"], ["foerdermitgliedschaft.html", "Fördermitglied werden"], ["unternehmen.html", "Als Unternehmen helfen"], ["aktion.html", "Eigene Aktion starten"], ["fachwissen.html", "Fachwissen einbringen"], ["projekt-teilen.html", "Projekt teilen"]] },
   { url: "beratung.html", label: "Beratung" },
-  { url: "ueber-uns.html", label: "Über uns", children: [["wirkung.html", "Unsere Wirkung"]] }
+  { url: "ueber-uns.html", label: "Über uns", children: [["wirkung.html", "Unsere Wirkung"]] },
+  { url: "kontakt.html", label: "Kontakt" }
 ];
 const donationNav = { url: "spenden.html", label: "Jetzt helfen", children: [["spenden.html#wasser-spenden", "Wasser spenden"], ["spenden.html#waisenpatenschaft", "Waisenpatenschaft"], ["spenden.html#bildung-spenden", "Bildung unterstützen"], ["spenden.html#familien-spenden", "Familien stärken"], ["spenden.html#kurban-spenden", "Ramadan & Kurban"], ["foerdermitgliedschaft.html", "Fördermitgliedschaft"]] };
 const currentIn = (item) => item.url === path || item.children?.some(([url]) => url.split("#")[0] === path);

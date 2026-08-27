@@ -78,7 +78,7 @@ select {
 .nav {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 18px;
   font-size: 0.82rem;
   font-weight: 700;
 }
