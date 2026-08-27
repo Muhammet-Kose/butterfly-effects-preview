@@ -26,14 +26,24 @@ if (pageVisual) {
   document.body.style.setProperty("--page-focus", pageVisual[1]);
 }
 const nav = [
-  ["projekte.html", "Projekte"],
-  ["ramadan-kurban.html", "Kurban"],
-  ["mitmachen.html", "Mitmachen"],
-  ["beratung.html", "Beratung"],
-  ["ueber-uns.html", "Über uns"],
+  { url: "projekte.html", label: "Projekte", children: [["wasser.html", "Wasserprojekte"], ["waisen.html", "Waisenkinder"], ["familien.html", "Familienhilfe"], ["bildung.html", "Bildung"], ["ernaehrung.html", "Ernährung"]] },
+  { url: "ramadan-kurban.html", label: "Kurban", children: [["spenden.html", "Kurban-Spende"]] },
+  { url: "mitmachen.html", label: "Mitmachen", children: [["ehrenamt.html", "Ehrenamtlich helfen"], ["foerdermitgliedschaft.html", "Fördermitglied werden"], ["unternehmen.html", "Als Unternehmen helfen"], ["aktion.html", "Eigene Aktion starten"], ["fachwissen.html", "Fachwissen einbringen"], ["projekt-teilen.html", "Projekt teilen"]] },
+  { url: "beratung.html", label: "Beratung" },
+  { url: "ueber-uns.html", label: "Über uns", children: [["wirkung.html", "Unsere Wirkung"]] }
 ];
+const donationNav = { url: "spenden.html", label: "Jetzt helfen", children: [["spenden.html#wasser-spenden", "Wasser spenden"], ["spenden.html#waisenpatenschaft", "Waisenpatenschaft"], ["spenden.html#bildung-spenden", "Bildung unterstützen"], ["spenden.html#familien-spenden", "Familien stärken"], ["spenden.html#kurban-spenden", "Ramadan & Kurban"], ["foerdermitgliedschaft.html", "Fördermitgliedschaft"]] };
+const currentIn = (item) => item.url === path || item.children?.some(([url]) => url.split("#")[0] === path);
+const currentTarget = path + location.hash;
+const renderNavItem = (item, cta = false) => {
+  const active = currentIn(item);
+  const id = `submenu-${item.url.replace(/\.html$/, "")}`;
+  const icon = cta ? '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"/></svg>' : "";
+  if (!item.children) return `<a class="nav-link" href="${item.url}"${active ? ' aria-current="page"' : ""}>${item.label}</a>`;
+  return `<div class="nav-group${cta ? " nav-donate" : ""}${active ? " is-current" : ""}"><div class="nav-group-label"><a class="${cta ? "button nav-cta" : "nav-link"}" href="${item.url}"${item.url === path ? ' aria-current="page"' : ""}>${icon}<span>${item.label}</span></a><button class="submenu-toggle" type="button" aria-expanded="false" aria-controls="${id}"><span class="sr">Untermenü ${item.label} öffnen</span><svg aria-hidden="true" viewBox="0 0 16 16"><path d="m3 6 5 5 5-5"/></svg></button></div><div class="submenu" id="${id}">${item.children.map(([url, label]) => `<a href="${url}"${url === currentTarget || (!url.includes("#") && url === path) ? ' aria-current="page"' : ""}>${label}</a>`).join("")}</div></div>`;
+};
 document.querySelector("[data-header]").innerHTML =
-  `<a class="skip" href="#main">Zum Inhalt</a><header class="site-header"><a class="brand" href="index.html"><img src="assets/logo.png" alt="Butterfly Effects"></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation"><span class="sr">Menü öffnen</span><span></span><span></span><span></span></button><nav class="nav" id="main-navigation" aria-label="Hauptnavigation">${nav.map(([u, n]) => `<a href="${u}"${path === u ? ' aria-current="page"' : ""}>${n}</a>`).join("")}<a href="spenden.html" class="button nav-cta"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"/></svg><span>Jetzt helfen</span></a></nav></header>`;
+  `<a class="skip" href="#main">Zum Inhalt</a><header class="site-header"><a class="brand" href="index.html"><img src="assets/logo.png" alt="Butterfly Effects"></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation"><span class="sr">Menü öffnen</span><span></span><span></span><span></span></button><nav class="nav" id="main-navigation" aria-label="Hauptnavigation">${nav.map((item) => renderNavItem(item)).join("")}${renderNavItem(donationNav, true)}</nav></header>`;
 document.querySelector("[data-footer]").innerHTML =
   `<footer class="site-footer"><div class="footer-grid"><div><img class="footer-logo" src="assets/logo.png" alt="Butterfly Effects"><p>Hilfe, die Menschen stärkt – von Hamburg in die Welt.</p></div><div><h3>Entdecken</h3><a href="projekte.html">Projekte</a><a href="ramadan-kurban.html">Kurban & Ramadan</a><a href="beratung.html">Psychosoziale Beratung</a><a href="ernaehrung.html">Ernährungsunterstützung</a><a href="ehrenamt.html">Ehrenamt</a><a href="foerdermitgliedschaft.html">Fördermitgliedschaft</a><a href="mitmachen.html">Mitmachen</a></div><div><h3>Kontakt</h3><a href="kontakt.html">Kontakt aufnehmen</a><a href="mailto:info@butterfly-effects.org">info@butterfly-effects.org</a><p>Regus Business Centre<br>Hahnenkamp 1 · 22765 Hamburg</p></div></div><div class="legal">© Butterfly Effects Charity · Vorschau – Inhalte und Kennzahlen vor Veröffentlichung bestätigen · <a href="https://butterfly-effects.org/impressum/">Impressum</a> · <a href="https://butterfly-effects.org/datenschutzerklaerung/">Datenschutz</a></div></footer>`;
 document.querySelector(".menu-toggle")?.addEventListener("click", (e) => {
@@ -43,6 +53,35 @@ document.querySelector(".menu-toggle")?.addEventListener("click", (e) => {
   e.currentTarget.querySelector(".sr").textContent = open
     ? "Menü schließen"
     : "Menü öffnen";
+});
+document.querySelectorAll(".submenu-toggle").forEach((toggle) => {
+  toggle.addEventListener("click", () => {
+    const group = toggle.closest(".nav-group");
+    const willOpen = !group.classList.contains("submenu-open");
+    document.querySelectorAll(".nav-group.submenu-open").forEach((openGroup) => {
+      if (openGroup === group) return;
+      openGroup.classList.remove("submenu-open");
+      openGroup.querySelector(".submenu-toggle")?.setAttribute("aria-expanded", "false");
+    });
+    group.classList.toggle("submenu-open", willOpen);
+    toggle.setAttribute("aria-expanded", String(willOpen));
+  });
+});
+document.addEventListener("click", (event) => {
+  if (event.target.closest(".nav-group")) return;
+  document.querySelectorAll(".nav-group.submenu-open").forEach((group) => {
+    group.classList.remove("submenu-open");
+    group.querySelector(".submenu-toggle")?.setAttribute("aria-expanded", "false");
+  });
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  document.querySelectorAll(".nav-group.submenu-open").forEach((group) => {
+    group.classList.remove("submenu-open");
+    const toggle = group.querySelector(".submenu-toggle");
+    toggle?.setAttribute("aria-expanded", "false");
+    toggle?.focus();
+  });
 });
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
