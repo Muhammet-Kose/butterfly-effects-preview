@@ -15,7 +15,7 @@ const pageVisuals = {
   "aktion.html": ["project-family-warm-v3.png", "56% 42%"],
   "fachwissen.html": ["project-education-warm-v3.png", "48% 42%"],
   "projekt-teilen.html": ["project-education-warm-v3.png", "48% 42%"],
-  "beratung.html": ["project-family-warm-v3.png", "58% 40%"],
+  "beratung.html": ["beratung-interview-rect-v1.png", "50% 50%"],
   "ueber-uns.html": ["project-water-warm-v3.png", "48% 42%"],
   "kontakt.html": ["project-water-warm-v3.png", "52% 40%"]
 };
