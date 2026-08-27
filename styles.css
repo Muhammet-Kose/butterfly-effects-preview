@@ -330,10 +330,10 @@ main .button:active {
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(8, 29, 45, 0.94) 0%,
-    rgba(8, 29, 45, 0.82) 32%,
-    rgba(8, 29, 45, 0.28) 57%,
-    rgba(8, 29, 45, 0) 76%
+    rgba(24, 18, 12, 0.82) 0%,
+    rgba(24, 18, 12, 0.66) 32%,
+    rgba(24, 18, 12, 0.18) 57%,
+    rgba(24, 18, 12, 0) 76%
   );
 }
 .hero-copy {
@@ -732,10 +732,10 @@ main .button:active {
   overflow: hidden;
   background-image: linear-gradient(
       90deg,
-      rgba(8, 29, 45, 0.94) 0%,
-      rgba(8, 29, 45, 0.78) 36%,
-      rgba(8, 29, 45, 0.2) 72%,
-      rgba(8, 29, 45, 0.04) 100%
+      rgba(24, 18, 12, 0.82) 0%,
+      rgba(24, 18, 12, 0.6) 36%,
+      rgba(24, 18, 12, 0.14) 72%,
+      rgba(24, 18, 12, 0.02) 100%
     ),
     var(--page-visual);
   background-position: center, var(--page-focus, center);
@@ -944,9 +944,9 @@ main .button:active {
     min-height: 610px;
     background-image: linear-gradient(
         90deg,
-        rgba(8, 29, 45, 0.9) 0%,
-        rgba(8, 29, 45, 0.68) 46%,
-        rgba(8, 29, 45, 0.12) 82%
+        rgba(24, 18, 12, 0.82) 0%,
+        rgba(24, 18, 12, 0.56) 46%,
+        rgba(24, 18, 12, 0.1) 82%
       ),
       var(--page-visual);
   }
@@ -1053,9 +1053,9 @@ main .button:active {
   .hero:before {
     background: linear-gradient(
       90deg,
-      rgba(8, 29, 45, 0.93),
-      rgba(8, 29, 45, 0.55) 65%,
-      rgba(8, 29, 45, 0.18)
+      rgba(24, 18, 12, 0.86),
+      rgba(24, 18, 12, 0.5) 65%,
+      rgba(24, 18, 12, 0.14)
     );
   }
   .hero-copy {
@@ -1964,10 +1964,10 @@ main .button:active {
   .hero:before {
     background: linear-gradient(
       90deg,
-      rgba(8, 29, 45, 0.84) 0%,
-      rgba(8, 29, 45, 0.62) 42%,
-      rgba(8, 29, 45, 0.2) 68%,
-      rgba(8, 29, 45, 0.02) 100%
+      rgba(24, 18, 12, 0.78) 0%,
+      rgba(24, 18, 12, 0.52) 42%,
+      rgba(24, 18, 12, 0.14) 68%,
+      rgba(24, 18, 12, 0.01) 100%
     );
   }
   .hero-copy {
