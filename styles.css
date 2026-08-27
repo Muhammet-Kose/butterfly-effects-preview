@@ -56,6 +56,12 @@ select {
 .skip:focus {
   transform: none;
 }
+[data-header] {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: 82px;
+}
 .site-header {
   height: 82px;
   display: flex;
@@ -64,9 +70,7 @@ select {
   gap: 34px;
   background: var(--sand);
   border-bottom: 1px solid #d5d0c6;
-  position: sticky;
-  top: 0;
-  z-index: 40;
+  position: relative;
 }
 .brand {
   width: 176px;
@@ -924,6 +928,9 @@ main .button:active {
   color: #aebbc4;
 }
 @media (max-width: 900px) {
+  [data-header] {
+    height: 70px;
+  }
   .section-head > *,
   .split > *,
   .world > *,
@@ -1031,7 +1038,8 @@ main .button:active {
     border-radius: 999px;
   }
   .hero {
-    min-height: 650px;
+    min-height: calc(100vh - 70px);
+    min-height: calc(100svh - 70px);
     background-position: 64% center;
   }
   .hero:before {
@@ -1935,7 +1943,8 @@ main .button:active {
     padding: 10px 12px;
   }
   .hero {
-    min-height: 550px;
+    min-height: calc(100vh - 70px);
+    min-height: calc(100svh - 70px);
     background-image: url("assets/hero-mobile-warm-v1.png");
     background-size: auto 125%;
     background-position: center top;
