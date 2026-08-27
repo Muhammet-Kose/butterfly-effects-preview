@@ -2364,7 +2364,7 @@ main > section:nth-of-type(4n)::after {
 .project-carousel-controls button:focus-visible,
 .project-carousel .project-grid:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
 .project-carousel { margin-inline:calc(-1 * max(5vw, calc((100vw - var(--max)) / 2))); padding-inline:max(5vw, calc((100vw - var(--max)) / 2)); overflow:hidden; }
-.project-carousel .project-grid { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:clamp(280px,27vw,350px); gap:16px; border:0; background:transparent; overflow-x:auto; overscroll-behavior-inline:contain; scroll-snap-type:inline mandatory; scroll-behavior:smooth; scrollbar-width:none; padding:4px 4px 22px; }
+.project-carousel .project-grid { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:clamp(280px,27vw,350px); gap:16px; border:0; background:transparent; overflow-x:auto; overflow-y:hidden; overscroll-behavior:contain; scroll-snap-type:inline mandatory; scroll-behavior:smooth; scrollbar-width:none; touch-action:pan-x; padding:4px 4px 22px; }
 .project-carousel .project-grid::-webkit-scrollbar { display:none; }
 .project-carousel .project { scroll-snap-align:start; border:1px solid var(--line); border-radius:20px; overflow:hidden; }
 @media (max-width:600px) {

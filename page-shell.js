@@ -120,13 +120,100 @@ if (!reduceMotion && "IntersectionObserver" in window) {
 }
 
 const projectTrack = document.querySelector(".project-carousel .project-grid");
-document.querySelectorAll("[data-project-scroll]").forEach((control) => {
-  control.addEventListener("click", () => {
-    if (!projectTrack) return;
-    const direction = control.dataset.projectScroll === "next" ? 1 : -1;
-    projectTrack.scrollBy({
-      left: direction * projectTrack.clientWidth * 0.82,
-      behavior: "smooth"
+if (projectTrack) {
+  const originalProjects = [...projectTrack.children];
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let setWidth = 0;
+  let autoplayTimer;
+  let resumeTimer;
+
+  const makeClone = (project) => {
+    const clone = project.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    clone.setAttribute("tabindex", "-1");
+    clone.querySelectorAll("a, button, input, select, textarea, [tabindex]").forEach((item) => {
+      item.setAttribute("tabindex", "-1");
+    });
+    return clone;
+  };
+
+  originalProjects.forEach((project) => projectTrack.append(makeClone(project)));
+  [...originalProjects].reverse().forEach((project) => projectTrack.prepend(makeClone(project)));
+
+  const measureLoop = () => {
+    const originalStart = projectTrack.children[originalProjects.length];
+    const repeatedStart = projectTrack.children[originalProjects.length * 2];
+    setWidth = repeatedStart.offsetLeft - originalStart.offsetLeft;
+    projectTrack.style.scrollBehavior = "auto";
+    projectTrack.scrollLeft = setWidth;
+    requestAnimationFrame(() => projectTrack.style.removeProperty("scroll-behavior"));
+  };
+
+  const keepLooping = () => {
+    if (!setWidth) return;
+    if (projectTrack.scrollLeft < setWidth * 0.25) {
+      projectTrack.style.scrollBehavior = "auto";
+      projectTrack.scrollLeft += setWidth;
+      projectTrack.style.removeProperty("scroll-behavior");
+    } else if (projectTrack.scrollLeft > setWidth * 1.75) {
+      projectTrack.style.scrollBehavior = "auto";
+      projectTrack.scrollLeft -= setWidth;
+      projectTrack.style.removeProperty("scroll-behavior");
+    }
+  };
+
+  const projectStep = () => {
+    const firstProject = projectTrack.querySelector(".project");
+    if (!firstProject) return projectTrack.clientWidth * 0.82;
+    const gap = parseFloat(getComputedStyle(projectTrack).columnGap) || 0;
+    return firstProject.getBoundingClientRect().width + gap;
+  };
+
+  const moveProjects = (direction) => {
+    projectTrack.scrollBy({ left: direction * projectStep(), behavior: "smooth" });
+  };
+
+  const stopAutoplay = () => {
+    window.clearInterval(autoplayTimer);
+    window.clearTimeout(resumeTimer);
+  };
+
+  const startAutoplay = () => {
+    stopAutoplay();
+    if (reducedMotion.matches || document.hidden) return;
+    autoplayTimer = window.setInterval(() => moveProjects(1), 3600);
+  };
+
+  const pauseThenResume = () => {
+    stopAutoplay();
+    resumeTimer = window.setTimeout(startAutoplay, 5000);
+  };
+
+  document.querySelectorAll("[data-project-scroll]").forEach((control) => {
+    control.addEventListener("click", () => {
+      moveProjects(control.dataset.projectScroll === "next" ? 1 : -1);
+      pauseThenResume();
     });
   });
-});
+
+  projectTrack.addEventListener("scroll", keepLooping, { passive: true });
+  projectTrack.addEventListener("pointerdown", pauseThenResume, { passive: true });
+  projectTrack.addEventListener("wheel", (event) => {
+    if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+    event.preventDefault();
+    projectTrack.scrollLeft += event.deltaY;
+    pauseThenResume();
+  }, { passive: false });
+  projectTrack.addEventListener("mouseenter", stopAutoplay);
+  projectTrack.addEventListener("mouseleave", startAutoplay);
+  projectTrack.addEventListener("focusin", stopAutoplay);
+  projectTrack.addEventListener("focusout", startAutoplay);
+  document.addEventListener("visibilitychange", startAutoplay);
+  reducedMotion.addEventListener("change", startAutoplay);
+  window.addEventListener("resize", measureLoop);
+
+  requestAnimationFrame(() => {
+    measureLoop();
+    startAutoplay();
+  });
+}
