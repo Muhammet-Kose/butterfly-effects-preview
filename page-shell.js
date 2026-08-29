@@ -156,6 +156,8 @@ if (projectTrack) {
   let setWidth = 0;
   let autoplayTimer;
   let resumeTimer;
+  let loopSettleTimer;
+  let normalizingLoop = false;
 
   const makeClone = (project) => {
     const clone = project.cloneNode(true);
@@ -179,17 +181,28 @@ if (projectTrack) {
     requestAnimationFrame(() => projectTrack.style.removeProperty("scroll-behavior"));
   };
 
-  const keepLooping = () => {
-    if (!setWidth) return;
-    if (projectTrack.scrollLeft < setWidth * 0.25) {
-      projectTrack.style.scrollBehavior = "auto";
-      projectTrack.scrollLeft += setWidth;
-      projectTrack.style.removeProperty("scroll-behavior");
-    } else if (projectTrack.scrollLeft > setWidth * 1.75) {
-      projectTrack.style.scrollBehavior = "auto";
-      projectTrack.scrollLeft -= setWidth;
-      projectTrack.style.removeProperty("scroll-behavior");
+  const normalizeLoop = () => {
+    if (!setWidth || normalizingLoop) return;
+    let correction = 0;
+    if (projectTrack.scrollLeft < setWidth * 0.65) {
+      correction = setWidth;
+    } else if (projectTrack.scrollLeft > setWidth * 2.15) {
+      correction = -setWidth;
     }
+    if (correction) {
+      normalizingLoop = true;
+      projectTrack.style.scrollBehavior = "auto";
+      projectTrack.scrollLeft += correction;
+      requestAnimationFrame(() => {
+        projectTrack.style.removeProperty("scroll-behavior");
+        normalizingLoop = false;
+      });
+    }
+  };
+
+  const scheduleLoopNormalization = () => {
+    window.clearTimeout(loopSettleTimer);
+    loopSettleTimer = window.setTimeout(normalizeLoop, 140);
   };
 
   const projectStep = () => {
@@ -226,10 +239,8 @@ if (projectTrack) {
     });
   });
 
-  projectTrack.addEventListener("scroll", keepLooping, { passive: true });
+  projectTrack.addEventListener("scroll", scheduleLoopNormalization, { passive: true });
   projectTrack.addEventListener("pointerdown", pauseThenResume, { passive: true });
-  projectTrack.addEventListener("mouseenter", stopAutoplay);
-  projectTrack.addEventListener("mouseleave", startAutoplay);
   projectTrack.addEventListener("focusin", stopAutoplay);
   projectTrack.addEventListener("focusout", startAutoplay);
   document.addEventListener("visibilitychange", startAutoplay);
