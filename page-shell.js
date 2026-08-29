@@ -89,6 +89,36 @@ document.addEventListener("keydown", (event) => {
 });
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+document.querySelectorAll("[data-counter]").forEach((counter) => {
+  const target = Number(counter.dataset.counter);
+  if (!Number.isFinite(target)) return;
+  const formatter = new Intl.NumberFormat("de-DE");
+  const finalText = formatter.format(target);
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    counter.textContent = finalText;
+    return;
+  }
+  counter.textContent = "0";
+  const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const startedAt = performance.now();
+      const duration = 1500;
+      const tick = (now) => {
+        const progress = Math.min((now - startedAt) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        counter.textContent = formatter.format(Math.round(target * eased));
+        if (progress < 1) requestAnimationFrame(tick);
+        else counter.textContent = finalText;
+      };
+      requestAnimationFrame(tick);
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.55 });
+  counterObserver.observe(counter);
+});
+
 if (!reduceMotion && "IntersectionObserver" in window) {
   const revealGroups = [
     "main > section:not(.hero):not(.page-hero)",
@@ -198,12 +228,6 @@ if (projectTrack) {
 
   projectTrack.addEventListener("scroll", keepLooping, { passive: true });
   projectTrack.addEventListener("pointerdown", pauseThenResume, { passive: true });
-  projectTrack.addEventListener("wheel", (event) => {
-    if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
-    event.preventDefault();
-    projectTrack.scrollLeft += event.deltaY;
-    pauseThenResume();
-  }, { passive: false });
   projectTrack.addEventListener("mouseenter", stopAutoplay);
   projectTrack.addEventListener("mouseleave", startAutoplay);
   projectTrack.addEventListener("focusin", stopAutoplay);
